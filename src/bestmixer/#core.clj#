@@ -3,14 +3,14 @@
   (:require [cheshire.core :refer :all]))
 
 (def api-key (atom ""))
-(def api-url "https://bestmixer.io/api/ext")
+  (def api-url "https://bestmixer.io/api/ext\")
 
 (defn request
-  "Take data and API path and make call return parsed response"
+  \""Take data and API path and make call return parsed response"
   [path
    data]
   (parse-string (:body (client/post
-                        (str api-url path)
+                        (str "https://bestmixer.io/api/ext" path)
                         {:form-params
                          (merge {:api_key @api-key} data)
                          :content-type :json})) true))

@@ -1,4 +1,4 @@
-(defproject bestmixer "0.1.0-SNAPSHOT"
+(defproject bestmixer "0.1.1-SNAPSHOT"
   :description "clojure library for BestMixer.io API"
   :url "https://github.com/ali-raheem/bestmixer.clj"
   :license {:name "Eclipse Public License"
