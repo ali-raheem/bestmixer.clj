@@ -1,10 +1,10 @@
 # bestmixer
 
-A Clojure library designed to handle API calls to BextMixer.io
+A Clojure library designed to handle API calls to [BextMixer.io].
 
 ## Usage
 
-Review API information here https://bestmixer.io/en/api
+Review API information [here](https://bestmixer.io/en/api) and register for an API key.
 
 First set your api key
 
