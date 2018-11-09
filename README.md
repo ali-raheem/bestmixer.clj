@@ -1,6 +1,6 @@
 # bestmixer
 
-A Clojure library designed to handle API calls to [BextMixer.io].
+A Clojure library designed to handle API calls to <BextMixer.io>.
 
 ## Usage
 
