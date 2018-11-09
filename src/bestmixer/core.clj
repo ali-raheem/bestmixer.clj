@@ -1,6 +1,6 @@
 (ns bestmixer.core
-  (:require [clj-http.client :as client])
-  (:require [cheshire.core :refer :all]))
+  (:require [clj-http.client :as client]
+            [cheshire.core :refer :all]))
 
 (def api-key (atom ""))
 (def api-url "https://bestmixer.io/api/ext")
@@ -60,7 +60,7 @@
   (reset! api-key new-key))
 
 (defn -main
-  "I don't do a whole lot."
+  "Skeleton usage of API"
   []
   (set-api-key "replace_with_api_key")
   (println (b64decode (:letter_of_guarantee
