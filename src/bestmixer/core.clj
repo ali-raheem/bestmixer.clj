@@ -35,7 +35,7 @@
   [address
    percent
    delay]
-  [{:address address :percent percent :delay delay}])
+  {:address address :percent percent :delay delay})
 
 (defn create-order
   "Create a new mix order"
@@ -66,7 +66,7 @@
   (println (b64decode (:letter_of_guarantee
                        (:data
                         (let [output (create-output
-                                      "1xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+                                      "replace_with_address"
                                       100
                                       45)]
-                          (create-order "" "btc" 0.5001 output)))))))
+                          (create-order "" "btc" 0.5001 [output])))))))
