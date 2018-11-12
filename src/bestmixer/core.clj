@@ -67,10 +67,9 @@
   (reset! api-key new-key))
 
 (defn -main
-  "Skeleton usage of API"
+  "Create order to mix litecoin to 1 output address with 45minute delay"
   []
   (set-api-key "replace_with_api_key")
-;; Create order to mix litecoin to 1 output address with 45minute delay
   (->>
    (create-output "LYDp9NWddbzxNfmmNj2tEjdXyDbxRuvgX4" 100 45)
    vector

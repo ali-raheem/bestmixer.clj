@@ -2,6 +2,8 @@
 
 A Clojure library designed to handle API calls to https://BextMixer.io.
 
+Licensed under Eclipse Public License 1.0
+
 ## Usage
 
 Review API information [here](https://bestmixer.io/en/api) and register for an API key.
