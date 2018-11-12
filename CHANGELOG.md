@@ -10,3 +10,6 @@ All notable changes to this project will be documented in this file. This change
 
 ## [0.1.2] -- 2018-11-08
 - Breaking change to output return; returns map not array of map
+
+## [0.1.3] -- 2018-11-12
+- Minor changes to internal API, added more helpful docstrings.

@@ -6,7 +6,8 @@
 (def api-url "https://bestmixer.io/api/ext")
 
 (defn request
-  "Take data and API path and make call return parsed response"
+  "Take data and API path and make call return parsed response
+  Takes the API `path` and the `data` to send in a map."
   [path
    data]
   (parse-string (:body (client/post
@@ -21,24 +22,28 @@
   (request "/fee/info" {}))
 
 (defn get-order-info
-  "Return information about an order in progress"
+  "Return information about an order in progress
+  Takes the `order-id`"
   [order-id]
   (request "/order/info" {:order_id order-id}))
 
 (defn get-code-info
-  "Return information about a BestMixer loyalty code"
+  "Return information about a BestMixer loyalty code
+  Takes `bm-code`"
   [bm-code]
   (request "/code/info" {:bm_code bm-code}))
 
 (defn create-output
-  "Create a new output array"
+  "Create a new output array
+  Takes an `address` the `percent` up to 100 output directed to that `address` and the `delay` in minutes"
   [address
    percent
    delay]
   {:address address :percent percent :delay delay})
 
 (defn create-order
-  "Create a new mix order"
+  "Create a new mix order
+  Takes a `bm-code`, `coin`, `fee` and vector of `output` returns the new order"
   [bm-code
    coin
    fee
@@ -50,12 +55,14 @@
                             }))
 
 (defn b64decode
-  "Helper function to b64decode letter of guarantee wrapping java"
-  [log]
-  (String. (.decode (java.util.Base64/getDecoder) log)))
+  "Helper function to b64decode letter of guarantee wrapping java
+  Takes the `string` to Base64 decode."
+  [string]
+  (String. (.decode (java.util.Base64/getDecoder) string)))
 
 (defn set-api-key
-  "Set your BestMixer.io API key"
+  "Set your BestMixer.io API key
+  Takes an API key in `new-key` as provided by BestMixer.io"
   [new-key]
   (reset! api-key new-key))
 
@@ -63,10 +70,12 @@
   "Skeleton usage of API"
   []
   (set-api-key "replace_with_api_key")
-  (println (b64decode (:letter_of_guarantee
-                       (:data
-                        (let [output (create-output
-                                      "replace_with_address"
-                                      100
-                                      45)]
-                          (create-order "" "btc" 0.5001 [output])))))))
+;; Create order to mix litecoin to 1 output address with 45minute delay
+  (->>
+   (create-output "LYDp9NWddbzxNfmmNj2tEjdXyDbxRuvgX4" 100 45)
+   vector
+   (create-order "" "ltc" 0.5001)
+   :data
+   :letter_of_guarantee
+   b64decode
+   println))
