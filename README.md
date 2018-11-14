@@ -1,6 +1,6 @@
 # bestmixer
 
-A Clojure library designed to handle API calls to https://BextMixer.io.
+A Clojure library designed to handle API calls to https://BestMixer.io.
 
 Licensed under Eclipse Public License 1.0
 
